@@ -7,8 +7,8 @@ import toml
 
 default_config = {
     "telegram": {
-        "bot_name": "your_bot_@_username",
-        "api_key": "your_telegram_api_key",
+        "bot_name": "<YOUR_BOT_USERNAME>",
+        "api_key": "<YOUR_TELEGRAM_API_KEY>",
         "worker_count": 20,
         "admin": "nukesor",
         "allow_private_vote": False,
@@ -17,7 +17,8 @@ default_config = {
         "max_polls_per_user": 200,
     },
     "database": {
-        "sql_uri": "postgresql://pollbot:localhost/pollbot",
+        # "sql_uri": "postgresql://pollbot:localhost/pollbot",
+        "sql_uri": "postgresql://vscode@localhost/vscode",
         "connection_count": 20,
         "overflow_count": 10,
     },
@@ -30,9 +31,11 @@ default_config = {
     "webhook": {
         "enabled": False,
         "domain": "https://localhost",
-        "token": "pollbot",
-        "cert_path": "/path/to/cert.pem",
-        "port": 7000,
+        # "token": "pollbot",
+        "token": "vscode",
+        # "cert_path": "/path/to/cert.pem",
+        # "port": 7000,
+        "port": 5432,
     },
 }
 

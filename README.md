@@ -159,6 +159,11 @@ git clone git@github.com:nukesor/ultimate-poll-bot pollbot && cd pollbot
  `poetry run alembic stamp head`.
 1. Double-check if you are on the right revision `(head)` with `poetry run alembic current` and comparing it to `poetry run alembic history`.
 
+### Devcontainer
+
+When using the devcontainer e.g. with GitHub Codespaces you need to provide a Telegram bot name and its API key in the [config.py](pollbot/config.py).
+You can run start the bot with the `run` task.
+
 ## Upgrading the Database
 
 If you did Step 7 in the previous section, this is how you upgrade

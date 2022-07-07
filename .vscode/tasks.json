@@ -1,0 +1,19 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build dev",
+            "type": "shell",
+            "group": "build",
+            "command": "poetry run python main.py; poetry run python initdb.py --drop-existing && poetry run python main.py",
+            "dependsOn": ["reset config"],
+        },
+        {
+            "label": "reset config",
+            "type": "shell",
+            "command": "rm -f ~/.config/ultimate_pollbot.toml",
+        }
+    ]
+}
