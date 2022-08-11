@@ -161,8 +161,8 @@ git clone git@github.com:nukesor/ultimate-poll-bot pollbot && cd pollbot
 
 ### Devcontainer
 
-When using the devcontainer e.g. with GitHub Codespaces you need to provide a Telegram bot name and its API key in the [config.py](pollbot/config.py).
-You can run start the bot with the `run` task.
+When using the devcontainer e.g. with GitHub Codespaces you need to provide a Telegram bot name and its API key in the [config.py](pollbot/config.py) or set the variables `BOT_NAME` and `BOT_API_KEY` as GitHub Codespaces secrets .
+You can start the bot with the `build dev (reset db)` task.
 
 ## Upgrading the Database
 

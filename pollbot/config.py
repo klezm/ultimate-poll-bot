@@ -5,10 +5,14 @@ import sys
 
 import toml
 
+assert os.environ.get("BOT_NAME"), "Set the variable as secrets in GitHub"
+assert os.environ.get("BOT_API_KEY"), "Set the variable as secrets in GitHub"
+
 default_config = {
     "telegram": {
-        "bot_name": "<YOUR_BOT_USERNAME>",
-        "api_key": "<YOUR_TELEGRAM_API_KEY>",
+        # Set these two variables as secrets in GitHub
+        "bot_name": os.environ["BOT_NAME"],
+        "api_key": os.environ["BOT_API_KEY"],
         "worker_count": 20,
         "admin": "nukesor",
         "allow_private_vote": False,

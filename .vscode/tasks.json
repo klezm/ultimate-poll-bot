@@ -4,16 +4,28 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build dev",
+            "label": "build dev (reset db)",
             "type": "shell",
             "group": "build",
             "command": "poetry run python main.py; poetry run python initdb.py --drop-existing && poetry run python main.py",
-            "dependsOn": ["reset config"],
+            "dependsOn": ["reset config"]
         },
         {
             "label": "reset config",
             "type": "shell",
-            "command": "rm -f ~/.config/ultimate_pollbot.toml",
+            "command": "rm -f ~/.config/ultimate_pollbot.toml"
+        },
+        {
+            "label": "build dev (keep db)",
+            "type": "shell",
+            "group": "build",
+            "command": "poetry run python main.py"
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "group": "test",
+            "command": "poetry run pytest"
         }
     ]
 }
