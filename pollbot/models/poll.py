@@ -51,6 +51,7 @@ class Poll(base):
 
     # Styling
     show_percentage = Column(Boolean, nullable=False, default=True)
+    percentage_style = Column(String, nullable=False, default="box")
     show_option_votes = Column(Boolean, nullable=False, default=True)
     european_date_format = Column(Boolean, nullable=False, default=False)
     permanently_summarized = Column(Boolean, nullable=False, default=False)

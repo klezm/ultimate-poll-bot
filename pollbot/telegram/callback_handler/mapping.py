@@ -67,6 +67,7 @@ from .styling import (
     decrease_option_index,
     increase_option_index,
     open_option_order_menu,
+    percentage_style,
     set_option_order,
     set_user_order,
     toggle_compact_buttons,
@@ -166,6 +167,7 @@ async_callback_mapping = {
     CallbackType.settings_change_poll_language: change_poll_language,
     # Styling
     CallbackType.settings_toggle_percentage: toggle_percentage,
+    CallbackType.settings_percentage_style: percentage_style,
     CallbackType.settings_toggle_option_votes: toggle_option_votes,
     CallbackType.settings_toggle_date_format: toggle_date_format,
     CallbackType.settings_toggle_summarization: toggle_summerization,

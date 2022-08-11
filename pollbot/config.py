@@ -22,6 +22,7 @@ default_config = {
     },
     "database": {
         # "sql_uri": "postgresql://pollbot:localhost/pollbot",
+        # "sql_uri": "postgresql://pollbot@localhost/pollbot",
         "sql_uri": "postgresql://vscode@localhost/vscode",
         "connection_count": 20,
         "overflow_count": 10,

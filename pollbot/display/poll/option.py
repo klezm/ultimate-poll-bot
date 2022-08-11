@@ -117,9 +117,14 @@ def get_percentage_line(option: Option, context: Context) -> str:
 
     if not poll.is_priority():
         percentage = calculate_percentage(option, context.total_user_count)
-        filled_slots = math.floor(percentage / 10)
-        line += filled_slots * "▬"
-        line += (10 - filled_slots) * "▭"
+        width = 10
+        filled_slots = math.floor(percentage / width)
+        # if "percentage boxes" == False:  # percentage boxes
+        if option.poll.percentage_style == "box":  # percentage boxes
+            line += filled_slots * "▬"
+            line += (width - filled_slots) * "▭"
+        else:  # percentage bars
+            line += get_percentage_style_bar(width, filled_slots, percentage)
         line += f" ({round(percentage)}%)"
     else:
         option_count = len(poll.options)
@@ -127,3 +132,23 @@ def get_percentage_line(option: Option, context: Context) -> str:
         line += f" {points} Points"
 
     return "".join(line)
+
+
+def get_percentage_style_bar(width: int, filled_slots: int, percentage) -> str:
+    """Get percentage style: bar.
+
+    Args:
+        width: The width of the bar in number of characters.
+        filled_slots: The number of characters that should be a completely filled block.
+        percentage: The total percentage.
+    """
+    line = "`"
+    line += filled_slots * "▉"
+    # unicode characters for steps smaller than 10%
+    percentage_frac = [" ", "▏", "▎", "▍", "▋", "▊", "▉"]
+    # each character represents 10% -> append fraction of 10% character
+    line += percentage_frac[int(((percentage % width) / width) * 7)]
+    # line += (width - filled_slots - 2) * " " + "▕"
+    line += (width - filled_slots - 1) * " "  # "▁"
+    line += "`"
+    return line

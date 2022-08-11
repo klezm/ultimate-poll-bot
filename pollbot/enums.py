@@ -114,6 +114,7 @@ class CallbackType(Enum):
     settings_show_remove_option_menu = 76
     settings_remove_option = 77
     settings_toggle_percentage = 78
+    settings_percentage_style = 94
     settings_toggle_allow_new_options = 79
     settings_toggle_date_format = 80
     settings_open_add_option_datepicker = 81
@@ -228,6 +229,13 @@ class OptionSorting(Enum):
 
     percentage = 11
     manual = 10
+
+# @unique
+# class PercentageStyle(Enum):
+#     """Save several possible percentage style options."""
+
+#     box = 0
+#     bar = 1
 
 
 @unique

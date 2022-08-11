@@ -11,7 +11,44 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 ENV POETRY_HOME "/home/vscode/.poetry"
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH "$POETRY_HOME/bin:$PATH"
+# RUN poetry completions bash >> $POETRY_HOME/../.bash_completion
 # RUN poetry completions bash >> /etc/bash_completion
+
+# RUN (cd $POETRY_HOME/.. && poetry completions bash >> .bash_completion)
+# RUN echo "11111111111111111111111111"
+# RUN env
+# RUN echo "22222222222222222222222222"
+# RUN echo "HOME: $HOME"
+# RUN echo ~
+# RUN echo "22222222222222222222222222"
+# RUN ls -lha /
+# RUN ls -lha /root/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /root/.local/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /root/.local/bin/ || echo "DIR DOES NOT EXIST!!!"
+# RUN echo "22222222222222222222222222"
+# RUN ls -lha /home/
+# RUN ls -lha /home/vscode/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /home/vscode/.poetry/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /home/vscode/.poetry/bin/ || echo "DIR DOES NOT EXIST!!!"
+# RUN echo "2-2-2-2-2-2-2-2-2-2-2-2-2-"
+# RUN find /tmp -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/| - \1/"
+# RUN (cd /tmp && find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/| - \1/")
+# RUN ls -lha /tmp/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /tmp/build-features/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /tmp/build-features/local-cache || echo "DIR DOES NOT EXIST!!!"
+# RUN echo "22222222222222222222222222"
+# RUN pwd
+# RUN ls -lha
+# # RUN (cd /workspaces/ultimate-poll-bot/ && poetry install)
+# RUN find /var/lib -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/| - \1/"
+# RUN find / -type d -iname workspace
+# RUN ls -lha /var/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /var/lib/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /var/lib/docker/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /var/lib/docker/codespacemount/ || echo "DIR DOES NOT EXIST!!!"
+# RUN ls -lha /var/lib/docker/codespacemount/workspace/ || echo "DIR DOES NOT EXIST!!!"
+# RUN pwd
+# RUN echo "33333333333333333333333333"
 
 # [Optional] If your requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp/pip-tmp/
@@ -20,7 +57,7 @@ ENV PATH "$POETRY_HOME/bin:$PATH"
 # RUN pip3 --disable-pip-version-check --no-cache-dir install --user poetry
 
 # [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends mc
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends mc
     # bash-completion
     # neofetch

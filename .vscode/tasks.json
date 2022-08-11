@@ -6,7 +6,14 @@
         {
             "label": "build dev (reset db)",
             "type": "shell",
+            // "isBackground": true,
             "group": "build",
+            // "command": "rm ~/.config/ultimate_pollbot.toml; poetry run python main.py && poetry run python initdb.py && poetry run python main.py",
+            // "command": "rm ~/.config/ultimate_pollbot.toml; poetry run python main.py && poetry run python initdb.py --drop-existing && poetry run python main.py",
+            // "command": "poetry run python main.py",
+            // "command": "(rm ~/.config/ultimate_pollbot.toml) && poetry run python main.py && poetry run python initdb.py --drop-existing && poetry run python main.py",
+
+            // "command": "poetry run python main.py && poetry run python initdb.py --drop-existing && poetry run python main.py",
             "command": "poetry run python main.py; poetry run python initdb.py --drop-existing && poetry run python main.py",
             "dependsOn": ["reset config"]
         },
@@ -14,6 +21,7 @@
             "label": "reset config",
             "type": "shell",
             "command": "rm -f ~/.config/ultimate_pollbot.toml"
+            // "command": "rm -f ~/.config/ultimate_pollbot.toml || echo 'no config file to remove'"
         },
         {
             "label": "build dev (keep db)",

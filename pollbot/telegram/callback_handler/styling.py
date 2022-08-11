@@ -42,6 +42,27 @@ def toggle_percentage(
     update_poll_messages(session, context.bot, poll)
     send_styling_message(session, context)
 
+@poll_required
+def percentage_style(
+    session: scoped_session, context: CallbackContext, poll: Poll
+) -> None:
+    """Toggle the style of the percentage bar."""
+    if poll.anonymous and not poll.show_option_votes:
+        context.query.message.chat.send_message(
+            text=i18n.t("settings.anonymity_warning", locale=context.user.locale),
+        )
+        return
+    style_options = ["box", "bar"]
+    setattr(
+        poll,
+        "percentage_style",
+        style_options[(style_options.index(str(poll.percentage_style)) + 1) % len(style_options)]
+        )
+
+    session.commit()
+    update_poll_messages(session, context.bot, poll)
+    send_styling_message(session, context)
+
 
 @poll_required
 def toggle_option_votes(

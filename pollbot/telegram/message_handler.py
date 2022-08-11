@@ -81,6 +81,12 @@ def handle_set_name(
     """Set the name of the poll."""
     poll.name = text
 
+    # TODO: REMOVE!!!
+    if text == "DUMMY DEV POLL":
+        from tests.dummy_db import dummy_db
+        dummy_db(poll, session, user)
+    # TODO: REMOVE!!!
+
     if poll.name is None:
         return i18n.t("creation.error.invalid_poll_name", locale=user.locale)
 

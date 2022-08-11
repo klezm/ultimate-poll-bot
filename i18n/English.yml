@@ -101,6 +101,7 @@ keyboard:
     due_date: '📅 Set due date'
     hide_percentage: '▭% Hide percentage'
     show_percentage: '▭% Show percentage'
+    show_percentage_style: 'Switch percentage style'
     new_option: '＋ Add a new option'
     remove_option: '－ Remove options'
     forbid_user_options: '🍺 Forbid others to add new options'

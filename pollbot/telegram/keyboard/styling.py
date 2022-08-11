@@ -29,6 +29,19 @@ def get_styling_settings_keyboard(poll: Poll) -> InlineKeyboardMarkup:
             ]
         )
 
+        # Show/hide percentage styling
+        percentage_text = i18n.t("keyboard.show_percentage_style", locale=locale)
+        percentage_payload = (
+            f"{CallbackType.settings_percentage_style.value}:{poll.id}:0"
+        )
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=percentage_text, callback_data=percentage_payload
+                )
+            ]
+        )
+
         # Show/hide option votes
         option_votes_text = i18n.t("keyboard.show_option_votes", locale=locale)
         if poll.show_option_votes:

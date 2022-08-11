@@ -49,16 +49,25 @@
 	// "forwardPorts": [5000, 5432],
 	"forwardPorts": [5432],
 
+	// "updateContentCommand": "poetry completions zsh > ~/.oh-my-zsh/plugins/poetry/_poetry",
+	// "updateContentCommand": "mkdir $ZSH_CUSTOM/plugins/poetry && poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry",
+	// "onCreateCommand": "poetry completions bash >> ~/.bash_completion",
+	// "updateContentCommand": "poetry completions bash >> ${containerEnv:HOME}/.bash_completion",
+
 	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip install --user -r requirements.txt",
 	// install poetry and enable bash autocompletion
 	"postCreateCommand": "cd ${containerWorkspaceFolder} && poetry install && poetry completions bash >> ~/.bashrc",
+	// "updateContentCommand": "sudo apt-get -y install --no-install-recommends bash-completion && source ~/.bashrc",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
+	// "remoteUser": "pollbot",
 	"features": {
 		"github-cli": "latest"
 	},
 	"remoteEnv": {
+		// "PATH": "${containerEnv:PATH}:/home/vscode/.poetry/bin"
 		"PATH": "${containerEnv:PATH}:/root/.local/bin"
 	}
 }

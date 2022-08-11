@@ -1,4 +1,15 @@
 {
     "python.poetryPath": "poetry",
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    // "python.defaultInterpreterPath": "poetry python",
+    "logViewer.watch": [
+        {
+            "title": "creation log",
+            "pattern": "/workspaces/.codespaces/.persistedshare/creation.log"
+        }
+    ],
+    "smart-log.timeRegex": "^([0-2][0-9]|[0-2][0-9][0-9][0-9])\\-([0-1][0-9])\\-([0-3][0-9]) ([0-2][0-9])\\:([0-5][0-9])\\:([0-5][0-9]).([0-9][0-9][0-9])"
+    // https://github.com/emilast/vscode-logfile-highlighter/blob/ffad940cd9b2a682623668c4c52e41ea66f764be/src/TimePeriodCalculator.ts#L40
+    // http://www.regexplained.co.uk
+    // "smart-log.timeRegex": "^([12][0-9](?:[0-9]{2})?)\\-([01][0-9])\\-([0-3][0-9]) ([0-2][0-9])\\:([0-5][0-9])\\:([0-5][0-9])(,[0-9]{3}|[0-9]{3}.(?=:))"
 }
